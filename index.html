@@ -6,61 +6,37 @@
     <title>에이콘트리 주식회사 | Acorn Tree</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        :root {
-            --primary-color: #2D5A27; /* 숲의 녹색 - 성장을 상징 */
-            --accent-color: #8B5A2B;  /* 도토리의 갈색 - 근간을 상징 */
-            --text-dark: #1d1d1f;
-            --text-light: #86868b;
-            --bg-light: #f5f5f7;
-        }
-
+        :root { --primary-color: #2D5A27; --accent-color: #8B5A2B; --text-dark: #1d1d1f; --text-light: #86868b; --bg-light: #f5f5f7; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
         body { color: var(--text-dark); background-color: #fff; scroll-behavior: smooth; }
         
-        /* 헤더/내비게이션 */
         header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
-        .logo { font-size: 1.2rem; font-weight: 800; color: var(--primary-color); text-decoration: none; letter-spacing: -0.5px; }
-        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
+        .logo { font-size: 1.2rem; font-weight: 800; color: var(--primary-color); text-decoration: none; }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-size: 0.95rem; font-weight: 500; }
 
-        /* 히어로 섹션 */
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at bottom, #f0f4f0 0%, #fff 70%); padding: 0 20px; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px; }
-        .hero p { font-size: 1.4rem; color: var(--text-light); max-width: 600px; font-weight: 400; }
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at bottom, #f0f4f0 0%, #fff 70%); padding: 0 20px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -1.5px; }
         .hero .accent { color: var(--primary-color); }
 
-        /* 공통 섹션 스타일 */
-        section { max-width: 900px; margin: 0 auto; padding: 120px 24px; }
-        h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 50px; text-align: center; letter-spacing: -1px; }
+        section { max-width: 900px; margin: 0 auto; padding: 100px 24px; }
+        h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; text-align: center; }
 
-        /* 회사소개 그리드 */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .about-card { background: var(--bg-light); padding: 40px; border-radius: 20px; transition: transform 0.3s; }
-        .about-card:hover { transform: translateY(-5px); }
-        .about-card h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-color); }
-        .about-card p { font-size: 1rem; color: var(--text-light); line-height: 1.7; }
-
-        /* 공고판 디자인 */
-        .notice-list { border-top: 1px solid #eee; }
-        .notice-item { padding: 25px 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; cursor: pointer; }
-        .notice-item:hover { background: #fafafa; }
-        .notice-title { font-weight: 500; font-size: 1.05rem; }
+        /* 공고판 리스트 */
+        .notice-list { border-top: 2px solid var(--primary-color); }
+        .notice-item { padding: 25px 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+        .notice-item:hover { background: #f9f9f9; padding-left: 25px; }
+        .notice-title { font-weight: 500; }
         .notice-date { color: #aaa; font-size: 0.9rem; }
 
-        /* 지도 스타일 */
-        .map-box { border-radius: 24px; overflow: hidden; height: 400px; background: #eee; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .address-info { margin-top: 25px; text-align: center; color: var(--text-light); }
+        /* 팝업창(모달) 스타일 */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
+        .modal-content { background: #fff; margin: 10% auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 600px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2); line-height: 1.8; }
+        .close { position: absolute; right: 25px; top: 20px; font-size: 28px; font-weight: bold; color: #ccc; cursor: pointer; }
+        .modal-body h3 { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .modal-body p { white-space: pre-wrap; color: #444; }
 
-        /* 푸터 */
-        footer { padding: 80px 24px; background: var(--bg-light); text-align: center; }
-        .footer-logo { font-weight: 700; color: #ccc; margin-bottom: 20px; display: block; }
-        .copyright { font-size: 0.85rem; color: #999; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-grid { grid-template-columns: 1fr; }
-        }
+        footer { padding: 60px; background: var(--bg-light); text-align: center; color: #999; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -71,60 +47,68 @@
         <div class="nav-links">
             <a href="#about">ABOUT</a>
             <a href="#notices">NOTICE</a>
-            <a href="#map">LOCATION</a>
         </div>
     </nav>
 </header>
 
 <section class="hero">
     <h1>Great oaks from<br><span class="accent">little acorns grow.</span></h1>
-    <p>위대한 참나무도 시작은 작은 도토리였습니다.<br>에이콘트리는 내일의 가치를 위해 오늘을 심습니다.</p>
 </section>
 
-<section id="about">
-    <h2>ABOUT US</h2>
-    <div class="about-grid">
-        <div class="about-card">
-            <h3>우리의 철학</h3>
-            <p>에이콘트리는 작지만 단단한 가능성을 믿습니다. 지식과 자본의 선순환을 통해 지속 가능한 성장을 추구합니다.</p>
-        </div>
-        <div class="about-card">
-            <h3>주요 사업</h3>
-            <p>도서 출판을 통한 지식의 확산, 그리고 전략적 투자를 통한 자산의 가치 증대를 핵심 사업으로 운영합니다.</p>
-        </div>
-    </div>
-</section>
-
-<section id="notices" style="background: #fff;">
+<section id="notices">
     <h2>PUBLIC NOTICE</h2>
     <div class="notice-list">
-        <div class="notice-item">
+        <div class="notice-item" onclick="openModal('notice1')">
             <span class="notice-title">주식회사 에이콘트리 설립 공고</span>
             <span class="notice-date">2026. 01. 11</span>
         </div>
-        <div class="notice-item">
-            <span class="notice-title">정관 및 공고 방법 안내</span>
+        <div class="notice-item" onclick="openModal('notice2')">
+            <span class="notice-title">공고방법에 관한 안내</span>
             <span class="notice-date">2026. 01. 11</span>
         </div>
     </div>
 </section>
 
-<section id="map">
-    <h2>LOCATION</h2>
-    <div class="map-box">
-        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#999; font-size:0.9rem;">
-            [지도 서비스에서 HTML 태그를 복사하여 이곳에 붙여넣으세요]
-        </div>
+<div id="noticeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody" class="modal-body">
+            </div>
     </div>
-    <div class="address-info">
-        <p>서울특별시 [상세 주소를 입력하세요]</p>
-    </div>
-</section>
+</div>
 
 <footer>
-    <span class="footer-logo">ACORN TREE</span>
-    <p class="copyright">&copy; 2026 Acorn Tree Co., Ltd. All rights reserved.</p>
+    &copy; 2026 Acorn Tree Co., Ltd. All rights reserved.
 </footer>
+
+<script>
+    const notices = {
+        notice1: {
+            title: "주식회사 에이콘트리 설립 공고",
+            content: "주식회사 에이콘트리는 2026년 1월 11일 발기인 총회를 거쳐 정식 설립되었음을 공고합니다.\n\n1. 상호: 에이콘트리 주식회사\n2. 본점: 서울특별시 [상세주소]\n3. 공고방법: 당사 인터넷 홈페이지(acorntree-corp.github.io)\n4. 대표이사: [성함]"
+        },
+        notice2: {
+            title: "공고방법에 관한 안내",
+            content: "당사는 정관 제4조에 의거하여 회사의 공고를 인터넷 홈페이지에 게재합니다.\n다만, 전산장애 기타 부득이한 사유로 회사의 인터넷 홈페이지에 공고를 할 수 없는 때에는 서울특별시에서 발행하는 일간 [신문이름]에 게재합니다."
+        }
+    };
+
+    function openModal(id) {
+        const modal = document.getElementById("noticeModal");
+        const body = document.getElementById("modalBody");
+        body.innerHTML = `<h3>${notices[id].title}</h3><p>${notices[id].content}</p>`;
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("noticeModal").style.display = "none";
+    }
+
+    // 창 바깥 클릭시 닫기
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("noticeModal")) closeModal();
+    }
+</script>
 
 </body>
 </html>
