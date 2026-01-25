@@ -127,11 +127,10 @@
 5. 발행할 주식의 총수: 100,000주
 6. 설립 시 발행하는 주식의 총수: 1,000주
 7. 1주의 금액: 5,000원
-8. 공고방법: 당사 인터넷 홈페이지에 게재`
+8. 공고방법: 당사 인터넷 홈페이지에 게재
 
 2026년 1월 23일
-주식회사 에이콘트리
-대표이사
+주식회사 에이콘트리 대표이사 (인)`
         },
         notice2: {
             title: "공고방법에 관한 안내",
@@ -146,7 +145,9 @@
         const body = document.getElementById("modalBody");
         
         if (DATA[id]) {
-            body.innerHTML = `<h3>${DATA[id].title}</h3><p>${DATA[id].content}</p>`;
+            // 줄바꿈(\n)을 HTML 태그(<br>)로 변환하여 화면에 표시
+            const formattedContent = DATA[id].content.replace(/\n/g, '<br>');
+            body.innerHTML = `<h3>${DATA[id].title}</h3><p>${formattedContent}</p>`;
             modal.style.display = "block";
         }
     }
@@ -156,9 +157,11 @@
     }
 
     window.onclick = function(event) {
-        if (event.target == document.getElementById("noticeModal")) closeModal();
+        if (event.target == document.getElementById("noticeModal")) {
+            closeModal();
+        }
     }
-</script>
+</script>>
 
 </body>
 </html>
