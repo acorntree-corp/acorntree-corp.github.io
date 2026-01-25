@@ -109,43 +109,16 @@
 </footer>
 
 <script>
+    // 소스 보기 시 내용이 보이지 않도록 Base64로 인코딩된 데이터입니다.
     const DATA = {
         notice1: {
-            t: "\uc8fc\uc2dd\ud68c\uc0ac\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\u0020\uc124\ub9bd\u0020\uacf5\uace0",
-            c: "\uc8fc\uc2dd\ud68c\uc0ac\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\ub294\u0020\u0032\u0030\u0032\u0036\ub144\u0020\u0031\uc6d4\u0020\u0031\u0031\uc77c\u0020\ubc1c\uae30\uc778\u0020\ucd1d\ud68c\ub97c\u0020\uac70\uccd0\u0020\uc815\uc2dd\u0020\uc124\ub9bd\ub418\uc5c8\uc74c\uc744\u0020\uacf5\uace0\ud569\ub2c8\ub2e4\u002e\n\n\u0031\u002e\u0020\uc0c1\ud638\u003a\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\u0020\uc8fc\uc2dd\ud68c\uc0ac\n\u0032\u002e\u0020\ubcf8\uc810\u003a\u0020\uc11c\uc6b8\ud2b9\ubcc4\uc2dc\u0020\uc11c\ucd08\uad6c\u0020\ubc18\ud3ec\ub300\ub85c\u0020\u0033\u0030\u0030\n\u0033\u002e\u0020\uacf5\uace0\ubc29\ubc95\u003a\u0020\ub2e9\uc0ac\u0020\uc778\ud130\ub137\u0020\ud648\ud398\uc774\uc9c0"
+            // "주식회사 에이콘트리 설립 공고"
+            t: "7KO87Iud7ZqM7IKsIOyXkOydtOyZsO2KvOumrCDshKTrpq0g6rO16rOg",
+            // 본문 내용 전체 인코딩
+            c: "7KO87Iud7ZqM7IKsIOyXkOydtOyZsO2KvOumrOuKlCAyMDI264WREAx7JuUIDEx7J28IOuwnOq4sOyduCDdCDtmZTroZzrlYwg6rGw7LVuIOygleyLneyEpOumrTrlkJjsl4jslYwgsrO16rOg7ZWp64uI64ukLgoKMS4g7IOB7Zi4OiDsl5DsHbTsmbDtirzrpqwg7KO87Iud7ZqM7IKsCjIuIOuqsOygkA6IOyEnOybqxpLvrccIOyEnLCh6rWsIOuBanOapoOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOiDri7TsSaQg7J247YSw64S3IOyZgO2yZGlI7KeA"
         },
         notice2: {
-            t: "\uacf5\uace0\ubc29\ubc95\uc5d0\u0020\uad00\ud55c\u0020\uc548\ub0b4",
-            c: "\ub2e9\uc0ac\ub294\u0020\uc815\uad00\u0020\uc81c\u0034\uc870\uc5d0\u0020\uc758\uac70\ud558\uc5ec\u0020\ud68c\uc0ac\uc758\u20\uacf5\uace0\ub9bc\u20\uc778\ud130\ub137\u20\ud648\ud398\uc774\uc9c0\uc5d0\u20\uac8c\uc7ac\ud569\ub2c8\ub2e4\u002e\n\ub2e8\u002c\u20\uc804\uc0b0\uc7a5\uc560\u20\ub4f1\u20\ubd80\ub4dd\uc774\ud55c\u20\uc0ac\uc720\u20\ubc1c\uc0dd\u20\uc2dc\u20\uc11c\uc6b8\ud2b9\ubcc4\uc2dc\uc5d0\uc11c\u20\ubc1c\ud589\ud558\ub294\u20\uc77c\uac04\uc9c0\uc5d0\u20\uac8c\uc7ac\ud560\u20\uc218\u20\uc788\uc2b5\ub2c8\ub2e4\u002e"
-        }
-    };
-    const SECRET_KEY = "cXVlZW4wNjE2";
-
-    function openModal(id) {
-        let pw = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
-        if (pw === null) return;
-        
-        pw = pw.trim().toLowerCase();
-
-        if (window.btoa(pw) === SECRET_KEY) {
-            const modal = document.getElementById("noticeModal");
-            const body = document.getElementById("modalBody");
-            
-            body.innerHTML = `<h3>${DATA[id].t}</h3><p>${DATA[id].c}</p>`;
-            modal.style.display = "block";
-        } else {
-            alert("비밀번호가 일치하지 않습니다.");
-        }
-    }
-
-    function closeModal() {
-        document.getElementById("noticeModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == document.getElementById("noticeModal")) closeModal();
-    }
-</script>
-
-</body>
-</html>
+            // "공고방법에 관한 안내"
+            t: "6rO16rOg67Cp67KV7JeQIOyqtO2VnCDslYjrgrQ=",
+            // 본문 내용 전체 인코딩
+            c: "64u57IKs64qUIOyglOq0gCDsoJc07KGw7JeQIOydmOqxsO2VmecIO2ZoeSaqOydmCDqs7Xqs6Trpbwg7J247YSw64S3IOyZgO2yZGlI7KeA7JeQIOqyjOyerO2apOuLiOuLpC4K64uoLCDsoITsgrDsnqXslaQg65OxIOu2geuYrOydtO2VnCDsgqzsnKAgsrjsgr0g7IucIOyEnOybqxpLvrcc7JeQ7IScIOuwnO2
