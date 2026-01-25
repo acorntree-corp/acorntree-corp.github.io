@@ -10,53 +10,31 @@
         :root { --primary-color: #2D5A27; --accent-color: #8B5A2B; --text-dark: #1d1d1f; --text-light: #86868b; --bg-light: #f5f5f7; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
         body { color: var(--text-dark); background-color: #fff; scroll-behavior: smooth; line-height: 1.6; }
-        
-        /* 헤더 */
         header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
         .logo { font-size: 1.2rem; font-weight: 800; color: var(--primary-color); text-decoration: none; letter-spacing: -0.5px; }
         .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary-color); }
-
-        /* 히어로 */
         .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at bottom, #f0f4f0 0%, #fff 70%); padding: 0 20px; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -1.5px; line-height: 1.2; }
         .hero .accent { color: var(--primary-color); }
-
-        /* 공통 섹션 */
         section { max-width: 900px; margin: 0 auto; padding: 100px 24px; border-bottom: 1px solid #f0f0f0; }
         h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 50px; text-align: center; letter-spacing: -1px; }
-
-        /* 회사소개 */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .about-card { background: var(--bg-light); padding: 40px; border-radius: 20px; }
         .about-card h3 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-color); }
         .about-card p { font-size: 1rem; color: var(--text-light); }
-
-        /* 공고 리스트 */
         .notice-list { border-top: 2px solid var(--primary-color); }
         .notice-item { padding: 25px 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
         .notice-item:hover { background: #f9f9f9; padding-left: 25px; }
-        .notice-title { font-weight: 500; }
-        .notice-date { color: #aaa; font-size: 0.9rem; }
-
-        /* 오시는 길 */
         .map-box { border-radius: 24px; overflow: hidden; height: 350px; background: #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        .address-info { text-align: center; color: var(--text-light); font-size: 1.1rem; }
-
-        /* 팝업(모달) */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
         .modal-content { background: #fff; margin: 10% auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 600px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
         .close { position: absolute; right: 25px; top: 20px; font-size: 28px; font-weight: bold; color: #ccc; cursor: pointer; }
         .modal-body h3 { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; color: var(--primary-color); }
         .modal-body p { white-space: pre-wrap; color: #444; line-height: 1.8; }
-
         footer { padding: 60px; background: var(--bg-light); text-align: center; color: #bbb; font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .about-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -109,7 +87,7 @@
     <h2>LOCATION</h2>
     <div class="map-box">
         <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#ccc;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.083012164838!2d126.99860697596819!3d37.50596022759918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca17914ca2433%3A0x216d57171a36dbe4!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjtj6zrjIDroZwgMzAw!5e0!3m2!1sko!2skr!4v1768116021462!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.1234!2d127.0000!3d37.5000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDMwJzAwLjAiTiAxMjfCsDAwJzAwLjAiRQ!5e0!3m2!1sko!2skr!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
     <div class="address-info">
@@ -133,44 +111,43 @@
 </footer>
 
 <script>
-    const notices = {
+    const ENC_DATA = {
         notice1: {
-            title: "주식회사 에이콘트리 설립 공고",
-            content: "주식회사 에이콘트리는 2026년 1월 11일 발기인 총회를 거쳐 정식 설립되었음을 공고합니다.\n\n1. 상호: 에이콘트리 주식회사\n2. 본점: 서울특별시 서초구 반포대로 300\n3. 공고방법: 당사 인터넷 홈페이지"
+            t: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrCDshKTrip0g6rO16rOg",
+            c: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrOuKlCAyMDI264IDHsm5QgMTHIOuwnOq4办7J24IOy0ne2ajOulvCDqsbDsspAg7KCV7IudIOyEpOumveuQmOyXiOyKteydhCDqsbTrpZztipXri4LgoKMS4g7IOB7Zi4OiDsydtOy9mO2KuOumrCDso7zsnb3ZqM7IKsCjIuIOacrOydkDog7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOi㑳IOyduO2EsOu3tyDtmYjtmYjtnbjsnbTsp4="
         },
         notice2: {
-            title: "공고방법에 관한 안내",
-            content: "당사는 정관 제4조에 의거하여 회사의 공고를 인터넷 홈페이지에 게재합니다.\n단, 전산장애 등 부득이한 사유 발생 시 서울특별시에서 발행하는 일간지에 게재할 수 있습니다."
+            t: "6rO16rOg67Cp67KV7JeQIOq0gO2VnCDslYTrgr=",
+            c: "647IKs64qUIOyerOq0IOygnDTrs7DslyAg7J2Y6rGw7ZWY7JesIO2ajOyCrOydmCDqsbTrpZzqulvCDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40g6rKM7J6s7Zmp64uI64Lgrrjrywg7KCE7IKw7J6l7JW0IOuT▒IOu265득7Z207ZWcIOyCrOycoCDrsJzsg53IOyEnOyqxO2KueuzhOyLnOyXkOyEnCDrsJztmYjtZsimIOydvOqwhOyngIOqKM7J6s7Zmg7IiYIOydtOyKteuLiOuLgo="
         }
     };
 
-    const SECRET_KEY = "cXVlZW4wNjE2"; 
+    const SECRET_KEY = "cXVlZW4wNjE2"; // queen0616
+
+    function d_str(s) {
+        return decodeURIComponent(atob(s).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    }
 
     function openModal(id) {
-        let userInput = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
-        if (userInput === null) return; 
+        let pw = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
+        if (pw === null) return;
+        
+        pw = pw.trim().toLowerCase();
 
-        // 오타 방지 처리 (공백 제거, 소문자 변환)
-        userInput = userInput.trim().toLowerCase();
-
-        if (window.btoa(userInput) === SECRET_KEY) {
+        if (window.btoa(pw) === SECRET_KEY) {
             const modal = document.getElementById("noticeModal");
             const body = document.getElementById("modalBody");
-            body.innerHTML = `<h3>${notices[id].title}</h3><p>${notices[id].content}</p>`;
+            body.innerHTML = `<h3>${d_str(ENC_DATA[id].t)}</h3><p>${d_str(ENC_DATA[id].c)}</p>`;
             modal.style.display = "block";
         } else {
             alert("비밀번호가 일치하지 않습니다.");
         }
     }
 
-    function closeModal() {
-        document.getElementById("noticeModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById("noticeModal");
-        if (event.target == modal) closeModal();
-    }
+    function closeModal() { document.getElementById("noticeModal").style.display = "none"; }
+    window.onclick = function(event) { if (event.target == document.getElementById("noticeModal")) closeModal(); }
 </script>
 
 </body>
