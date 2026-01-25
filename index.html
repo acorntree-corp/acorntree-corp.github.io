@@ -111,23 +111,29 @@
 </footer>
 
 <script>
+    // 내용을 소스코드에서 볼 수 없게 인코딩한 데이터입니다.
     const ENC_DATA = {
         notice1: {
             t: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrCDshKTrip0g6rO16rOg",
-            c: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrOuKlCAyMDI264IDHsm5QgMTHIOuwnOq4办7J24IOy0ne2ajOulvCDqsbDsspAg7KCV7IudIOyEpOumveuQmOyXiOyKteydhCDqsbTrpZztipXri4LgoKMS4g7IOB7Zi4OiDsydtOy9mO2KuOumrCDso7zsnb3ZqM7IKsCjIuIOacrOydkDog7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOi㑳IOyduO2EsOu3tyDtmYjtmYjtnbjsnbTsp4="
+            c: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrOuKlCAyMDI264IDHsm5QgMTHIOuwnOq4办7J24IOy0ne2ajOulvCDqsbDsspAg7KCV7IudIOyEpOumveuQmOyXiOyKteydhCDqsbTrpZztipXri4LgoKMS4g7IOB7Zi4OiDsydtOy9mO2KuOumrCDso7zsnb3ZqM7IKsCjIuIOacrOydkDog7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOiDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40="
         },
         notice2: {
-            t: "6rO16rOg67Cp67KV7JeQIOq0gO2VnCDslYTrgr=",
-            c: "647IKs64qUIOyerOq0IOygnDTrs7DslyAg7J2Y6rGw7ZWY7JesIO2ajOyCrOydmCDqsbTrpZzqulvCDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40g6rKM7J6s7Zmp64uI64Lgrrjrywg7KCE7IKw7J6l7JW0IOuT▒IOu265득7Z207ZWcIOyCrOycoCDrsJzsg53IOyEnOyqxO2KueuzhOyLnOyXkOyEnCDrsJztmYjtZsimIOydvOqwhOyngIOqKM7J6s7Zmg7IiYIOydtOyKteuLiOuLgo="
+            t: "6rO16rOg67Cp67KV7JeQIOq0gO2VnCDslYTrgr0=",
+            c: "647IKs64qUIOyerOq0IOygnDTrs7DslyAg7J2Y6rGw7ZWY7JesIO2ajOyCrOydmCDqsbTrpZzqulvCDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40g6rKM7J6s7Zmp64uI64Lgrrjrywg7KCE7IKw7J6l7JW0IOuTneuztCDrs7Tsh7Ag67aA65득7Z207ZWcIOyCrOycoCDrsJzsg53IOyEnOyqxO2KueuzhOyLnOyXkOyEnCDrsJztmYjtZsimIOydvOqwhOyngIOqKM7J6s7Zmg7IiYIOydtOyKteuLiOuLgo="
         }
     };
 
     const SECRET_KEY = "cXVlZW4wNjE2"; // queen0616
 
+    // 한글 복구 함수
     function d_str(s) {
-        return decodeURIComponent(atob(s).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
+        try {
+            return decodeURIComponent(atob(s).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        } catch (e) {
+            return "내용을 불러오는 중 오류가 발생했습니다.";
+        }
     }
 
     function openModal(id) {
@@ -139,6 +145,7 @@
         if (window.btoa(pw) === SECRET_KEY) {
             const modal = document.getElementById("noticeModal");
             const body = document.getElementById("modalBody");
+            // 암호화된 데이터를 한글로 풀어서 출력
             body.innerHTML = `<h3>${d_str(ENC_DATA[id].t)}</h3><p>${d_str(ENC_DATA[id].c)}</p>`;
             modal.style.display = "block";
         } else {
@@ -146,8 +153,13 @@
         }
     }
 
-    function closeModal() { document.getElementById("noticeModal").style.display = "none"; }
-    window.onclick = function(event) { if (event.target == document.getElementById("noticeModal")) closeModal(); }
+    function closeModal() {
+        document.getElementById("noticeModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("noticeModal")) closeModal();
+    }
 </script>
 
 </body>
