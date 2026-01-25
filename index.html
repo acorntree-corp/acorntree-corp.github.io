@@ -111,43 +111,31 @@
 <script>
     const DATA = {
         notice1: {
-            t: "ECA3BCEC8B9DED9A8CEC82AC20EC9790EC9DB4CF98ED8AB8EBA6AC20EC84A4EBA6BD20EAB3B5EAB3A0",
-            c: ""
+            title: "주식회사 에이콘트리 설립 공고",
+            content: `주식회사 에이콘트리는 2026년 01월 11일 발기인 총회의 결의로 설립되었음을 상법 제289조 규정에 의거하여 공고합니다.
+
+1. 상호: 주식회사 에이콘트리
+2. 목적: 솔루션 개발 및 공급업 등
+3. 발행할 주식의 총수: 1,000,000주
+4. 설립 시 발행하는 주식의 총수: 10,000주
+5. 1주의 금액: 500원
+6. 공고방법: 당사 인터넷 홈페이지에 게재`
         },
         notice2: {
-            t: "EAB3B5EAB3A0EBB0A9EBB295EC979020EAB480ED959C20EC9588EB82B4",
-            c: "EB8BAMECA2ACE4B8B020ECA095EAB48020ECA09C34ECA1B0EC979020EC9DB4EAB1B0ED9598EC97AC20ECA3BCECA3BCECB49DEED9A8CEC9D9820EC868CECA791EAB3B5EAB3A020EB93B120ED9A8CEC82ACEC9D9820EAB3B5EAB3A0EBZCFCA020EC9DB8ED84B0EB84B720ED9988ED8E98EC9DB4ECA780EC979020EAB28CECCA9CECED95A9EB8B88EB8B882E0AEB8B84EB8B8C2C20ECA084EC82B0EC9EA5EC95A020EB93B120EBB680EB939DEAB8B0ED959C20EC82ACEC9CA0EAB08020EBB09CEC839DEED95A020EAB2BDEC9AB0EC9790EB8A9420EC849CECAAB8ED8AA0EBB384EC8B9CEC9790EC849C20EBB09CED9689ED9598EB8A9420EC9DBCEAB084ECA78020EBB2A0EC9DBCEAB2BDECCA0CEC8B90EBBBB8EC979020EAB28CECCA9CECED95A020EC889820EC9E88EC8AAAQB8B88EB8B882E"
+            title: "공고방법에 관한 안내",
+            content: `당사는 정관 제4조에 의거하여 주주총회의 소집공고 등 회사의 공고를 인터넷 홈페이지에 게재합니다. 
+
+다만, 전산장애 등 부득이한 사유가 발생할 경우에는 서울특별시에서 발행하는 일간지 매일경제신문에 게재합니다.`
         }
     };
     
-    function decodeHex(hex) {
-        try {
-            var str = '';
-            for (var i = 0; i < hex.length; i += 2) {
-                str += '%' + hex.substr(i, 2);
-            }
-            return decodeURIComponent(str);
-        } catch (e) {
-            console.error("Decoding Error:", e);
-            return "내용을 불러올 수 없습니다.";
-        }
-    }
-
     function openModal(id) {
-        try {
-            const modal = document.getElementById("noticeModal");
-            const body = document.getElementById("modalBody");
-            
-            if (!DATA[id]) return;
-
-            const title = decodeHex(DATA[id].t);
-            const content = decodeHex(DATA[id].c);
-            
-            body.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+        const modal = document.getElementById("noticeModal");
+        const body = document.getElementById("modalBody");
+        
+        if (DATA[id]) {
+            body.innerHTML = `<h3>${DATA[id].title}</h3><p>${DATA[id].content}</p>`;
             modal.style.display = "block";
-
-        } catch (e) {
-            alert("공고 내용을 확인하는 중 문제가 발생했습니다.");
         }
     }
 
