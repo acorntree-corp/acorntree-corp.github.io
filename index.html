@@ -12,8 +12,8 @@
         body { color: var(--text-dark); background-color: #fff; scroll-behavior: smooth; line-height: 1.6; }
         header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
-        .logo { font-size: 1.2rem; font-weight: 800; color: var(--primary-color); text-decoration: none; letter-spacing: -0.5px; }
-        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .logo { font-size: 1.3rem; font-weight: 300; color: var(--primary-color); text-decoration: none; letter-spacing: 4px; font-family: 'Times New Roman', serif; }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--primary-color); }
         .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at bottom, #f0f4f0 0%, #fff 70%); padding: 0 20px; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -1.5px; line-height: 1.2; }
@@ -86,9 +86,7 @@
 <section id="map" style="border-bottom:none;">
     <h2>LOCATION</h2>
     <div class="map-box">
-        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#ccc;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.5828876472!2d127.00164831531!3d37.488319379811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca10f1352e851%3A0xc3f9a7647318859!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDA!5e0!3m2!1sko!2skr!4v1611111111111" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.238327318712!2d127.0044557!3d37.4905387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1420b998399%3A0x6b4923e3e07f7c4c!2z7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDA!5e0!3m2!1sko!2skr!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="address-info">
         <p>서울특별시 서초구 반포대로 300</p>
@@ -111,29 +109,18 @@
 </footer>
 
 <script>
-    const ENC_DATA = {
+    const DATA = {
         notice1: {
-            t: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrCDshKTrip0g6rO16rOg",
-            c: "7KO87Iud7ZqM7IKsIOyXkOydtOy9mO2KuOumrOuKlCAyMDI264IDHsm5QgMTHIOuwnOq4办7J24IOy0ne2ajOulvCDqsbDsspAg7KCV7IudIOyEpOumveuQmOyXiOyKteydhCDqsbTrpZztipXri4LgoKMS4g7IOB7Zi4OiDsydtOy9mO2KuOumrCDso7zsnb3ZqM7IKsCjIuIOacrOydkDog7ISc7Jq47Yq567OE7IucIOyEnOy0iOq1rCDrsJjYvOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOiDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40="
+            t: "\uc700\uc2dd\ud68c\uc0ac\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\u0020\uc124\ub9bd\u0020\uac30\uace0",
+            c: "\uc700\uc2dd\ud68c\uc0ac\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\ub294\u0020\u0032\u0030\u0032\u0036\ub144\u0020\u0031\uc6d4\u0020\u0031\u0031\uc77c\u0020\ubc1c\uae30\uc778\u0020\ucd1d\ud68c\ub9bc\u0020\uac70\uccd0\u0020\uc815\uc2dd\u0020\uc124\ub9bd\ub418\uc5c8\uc74c\uc744\u0020\uac30\uace0\ud569\ub2c8\ub2e4\u002e\n\n\u0031\u002e\u0020\uc0c1\ud638\u003a\u0020\uc5d0\uc774\ucf58\ud2b8\ub9ac\u0020\uc700\uc2dd\ud68c\uc0ac\n\u0032\u002e\u0020\ubcf8\uc810\u003a\u0020\uc11c\uc6b8\ud2b9\ubcc4\uc2dc\u0020\uc11c\ucd08\uad6c\u0020\ubc18\ud3ec\ub300\ub85c\u0020\u0033\u0030\u0030\n\u0033\u002e\u0020\uac30\uace0\ubc29\ubc95\u003a\u0020\ub2e9\uc0ac\u0020\uc778\ud130\ub137\u0020\ud648\ud398\uc774\uc9c0"
         },
         notice2: {
-            t: "6rO16rOg67Cp67KV7JeQIOq0gO2VnCDslYTrgr0=",
-            c: "647IKs64qUIOyerOq0IOygnDTrs7DslyAg7J2Y6rGw7ZWY7JesIO2ajOyCrOydmCDqsbTrpZzqulvCDsnbjtOu3tyDtmYjtmYjtnbjsnbTsp40g6rKM7J6s7Zmp64uI64Lgrrjrywg7KCE7IKw7J6l7JW0IOuTneuztCDrs7Tsh7Ag67aA65득7Z207ZWcIOyCrOycoCDrsJzsg53IOyEnOyqxO2KueuzhOyLnOyXkOyEnCDrsJztmYjtZsimIOydvOqwhOyngIOqKM7J6s7Zmg7IiYIOydtOyKteuLiOuLgo="
+            t: "\uac30\uace0\ubc29\ubc95\uc5d0\u0020\uad00\ud55c\u0020\uc548\ub0b4",
+            c: "\ub2e9\uc0ac\ub294\u0020\uc815\uad00\u0020\uc81c\u0034\uc870\uc5d0\u0020\uc758\uac70\ud558\uc5ec\u0020\ud68c\uc0ac\uc758\u0020\uac30\uace0\ub9bc\u0020\uc778\ud130\ub137\u0020\ud648\ud398\uc774\uc9c0\uc5d0\u0020\uac8c\uc7ac\ud569\ub2c8\ub2e4\u002e\n\ub2e8\u002c\u0020\uc804\uc0b0\uc7a5\uc560\u0020\ub4f1\u0020\ubd80\ub4dd\uc774\ud55c\u0020\uc0ac\uc720\u0020\ubc1c\uc0dd\u0020\uc2dc\u0020\uc11c\uc6b8\ud2b9\ubcc4\uc2dc\uc5d0\uc11c\u0020\ubc1c\ud589\ud558\ub294\u0020\uc77c\uac04\uc9c0\uc5d0\u0020\uac8c\uc7ac\ud560\u0020\uc218\u0020\uc748\uc2b5\ub2c8\ub2e4\u002e"
         }
     };
 
-    const SECRET_KEY = "cXVlZW4wNjE2"; 
-
-    function decodeUtf8(b64) {
-        try {
-            const binString = atob(b64);
-            const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0));
-            return new TextDecoder().decode(bytes);
-        } catch (e) {
-            console.error("Decoding error:", e);
-            return "내용을 표시할 수 없습니다.";
-        }
-    }
+    const SECRET_KEY = "cXVlZW4wNjE2";
 
     function openModal(id) {
         let pw = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
@@ -145,10 +132,7 @@
             const modal = document.getElementById("noticeModal");
             const body = document.getElementById("modalBody");
             
-            const title = decodeUtf8(ENC_DATA[id].t);
-            const content = decodeUtf8(ENC_DATA[id].c);
-            
-            body.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+            body.innerHTML = `<h3>${DATA[id].t}</h3><p>${DATA[id].c}</p>`;
             modal.style.display = "block";
         } else {
             alert("비밀번호가 일치하지 않습니다.");
