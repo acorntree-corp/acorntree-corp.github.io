@@ -132,45 +132,44 @@
     </div>
     <p style="color: #bbb; font-size: 0.85rem; margin-top: 30px;">&copy; 2026 Acorn Tree Co., Ltd. All rights reserved.</p>
 </footer>
-
     
+
 <script>
-    const notices = {
-        notice1: {
-            title: "주식회사 에이콘트리 설립 공고",
-            content: "주식회사 에이콘트리는 2026년 1월 11일 발기인 총회를 거쳐 정식 설립되었음을 공고합니다.\n\n1. 상호: 에이콘트리 주식회사\n2. 본점: 서울특별시 서초구 반포대로 300\n3. 공고방법: 당사 인터넷 홈페이지"
-        },
-        notice2: {
-            title: "공고방법에 관한 안내",
-            content: "당사는 정관 제4조에 의거하여 회사의 공고를 인터넷 홈페이지에 게재합니다.\n단, 전산장애 등 부득이한 사유 발생 시 서울특별시에서 발행하는 일간지에 게재할 수 있습니다."
-        }
-    };
+    const notices = {
+        notice1: {
+            title: "주식회사 에이콘트리 설립 공고",
+            content: "주식회사 에이콘트리는 2026년 1월 11일 발기인 총회를 거쳐 정식 설립되었음을 공고합니다.\n\n1. 상호: 에이콘트리 주식회사\n2. 본점: 서울특별시 서초구 반포대로 300\n3. 공고방법: 당사 인터넷 홈페이지"
+        },
+        notice2: {
+            title: "공고방법에 관한 안내",
+            content: "당사는 정관 제4조에 의거하여 회사의 공고를 인터넷 홈페이지에 게재합니다.\n단, 전산장애 등 부득이한 사유 발생 시 서울특별시에서 발행하는 일간지에 게재할 수 있습니다."
+        }
+    };
 
-    const SECRET_KEY = "cXVlZW4wNjE2"; 
+    const SECRET_KEY = "cXVlZW4wNjE2";
+    function openModal(id) {
+        const userInput = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
+        if (!userInput) return; 
+        // btoa 함수는 모든 브라우저에서 가장 안정적으로 작동합니다
+        if (btoa(userInput) === SECRET_KEY) {
+            const modal = document.getElementById("noticeModal");
+            const body = document.getElementById("modalBody");
+            body.innerHTML = `<h3>${notices[id].title}</h3><p>${notices[id].content}</p>`;
+            modal.style.display = "block";
+        } else {
+            alert("비밀번호가 일치하지 않습니다.");
+        }
+    }
 
-    function openModal(id) {
-        const userInput = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
-        if (!userInput) return; 
+    function closeModal() {
+        document.getElementById("noticeModal").style.display = "none";
+    }
 
-        // btoa 함수는 모든 브라우저에서 가장 안정적으로 작동합니다.
-        if (btoa(userInput) === SECRET_KEY) {
-            const modal = document.getElementById("noticeModal");
-            const body = document.getElementById("modalBody");
-            body.innerHTML = `<h3>${notices[id].title}</h3><p>${notices[id].content}</p>`;
-            modal.style.display = "block";
-        } else {
-            alert("비밀번호가 일치하지 않습니다.");
-        }
-    }
+    window.onclick = function(event) {
+        const modal = document.getElementById("noticeModal");
+        if (event.target == modal) closeModal();
+    }
 
-    function closeModal() {
-        document.getElementById("noticeModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById("noticeModal");
-        if (event.target == modal) closeModal();
-    }
 </script>
 
 </body>
