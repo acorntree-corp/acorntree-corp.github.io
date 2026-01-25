@@ -109,16 +109,60 @@
 </footer>
 
 <script>
-    // 소스 보기 시 내용이 보이지 않도록 Base64로 인코딩된 데이터입니다.
     const DATA = {
         notice1: {
-            // "주식회사 에이콘트리 설립 공고"
             t: "7KO87Iud7ZqM7IKsIOyXkOydtOyZsO2KvOumrCDshKTrpq0g6rO16rOg",
-            // 본문 내용 전체 인코딩
             c: "7KO87Iud7ZqM7IKsIOyXkOydtOyZsO2KvOumrOuKlCAyMDI264WREAx7JuUIDEx7J28IOuwnOq4sOyduCDdCDtmZTroZzrlYwg6rGw7LVuIOygleyLneyEpOumrTrlkJjsl4jslYwgsrO16rOg7ZWp64uI64ukLgoKMS4g7IOB7Zi4OiDsl5DsHbTsmbDtirzrpqwg7KO87Iud7ZqM7IKsCjIuIOuqsOygkA6IOyEnOybqxpLvrccIOyEnLCh6rWsIOuBanOapoOuMgOuhnCAzMDAKMy4g6rO16rOg67Cp67KVOiDri7TsSaQg7J247YSw64S3IOyZgO2yZGlI7KeA"
         },
         notice2: {
-            // "공고방법에 관한 안내"
             t: "6rO16rOg67Cp67KV7JeQIOyqtO2VnCDslYjrgrQ=",
-            // 본문 내용 전체 인코딩
-            c: "64u57IKs64qUIOyglOq0gCDsoJc07KGw7JeQIOydmOqxsO2VmecIO2ZoeSaqOydmCDqs7Xqs6Trpbwg7J247YSw64S3IOyZgO2yZGlI7KeA7JeQIOqyjOyerO2apOuLiOuLpC4K64uoLCDsoITsgrDsnqXslaQg65OxIOu2geuYrOydtO2VnCDsgqzsnKAgsrjsgr0g7IucIOyEnOybqxpLvrcc7JeQ7IScIOuwnO2
+            c: "64u57IKs64qUIOyglOq0gCDsoJc07KGw7JeQIOydmOqxsO2VmecIO2ZoeSaqOydmCDqs7Xqs6Trpbwg7J247YSw64S3IOyZgO2yZGlI7KeA7JeQIOqyjOyerO2apOuLiOuLpC4K64uoLCDsoITsgrDsnqXslaQg65OxIOu2geuYrOydtO2VnCDsgqzsnKAgsrjsgr0g7IucIOyEnOybqxpLvrcc7JeQ7IScIOuwnO2ZieuYmOuKlCDsnbzqsganlZAg6rKM7J6s7ZWgIOyImCDsnojrgovri4jri6Qu"
+        }
+    };
+    
+    const SECRET_KEY = "cXVlZW4wNjE2"; 
+
+    function decodeBase64(str) {
+        return decodeURIComponent(atob(str).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+    }
+
+    function openModal(id) {
+        let pw = prompt("공고 내용을 확인하시려면 비밀번호를 입력해주세요.");
+        if (pw === null) return;
+        
+        pw = pw.trim().toLowerCase();
+
+        try {
+            if (window.btoa(pw) === SECRET_KEY) {
+                const modal = document.getElementById("noticeModal");
+                const body = document.getElementById("modalBody");
+                
+                // 여기서 암호화된 데이터를 풀어(Decode) 화면에 보여줍니다.
+                const title = decodeBase64(DATA[id].t);
+                const content = decodeBase64(DATA[id].c);
+                
+                body.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+                modal.style.display = "block";
+            } else {
+                alert("비밀번호가 일치하지 않습니다.");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("비밀번호 확인 중 오류가 발생했습니다. (영문/숫자만 입력)");
+        }
+    }
+
+    function closeModal() {
+        document.getElementById("noticeModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("noticeModal")) closeModal();
+    }
+    
+</script>
+
+</body>
+</html>
