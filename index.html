@@ -109,9 +109,6 @@
 </footer>
 
 <script>
-    // [데이터 난독화 처리]
-    // Hex 인코딩 방식을 사용하여 외부에서 한글 내용을 읽을 수 없도록 처리했습니다.
-    // 기존 Base64 방식과 달리 특수문자나 패딩 오류가 발생하지 않는 안전한 방식입니다.
     const DATA = {
         notice1: {
             t: "ECA3BCEC8B9DED9A8CEC82AC20EC9790EC9DB4CF98ED8AB8EBA6AC20EC84A4EBA6BD20EAB3B5EAB3A0",
@@ -123,7 +120,6 @@
         }
     };
     
-    // 안전한 디코딩 함수 (Hex -> String)
     function decodeHex(hex) {
         try {
             var str = '';
